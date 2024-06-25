@@ -300,7 +300,7 @@
     "upload_options": {
       "description": "Created for 30405",
       "icon": "X",
-      "after": "run"
+      "after": "screen"
     },
     "use_early_access": false
   }

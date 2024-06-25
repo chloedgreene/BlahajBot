@@ -1,6 +1,10 @@
 ################################################################################
 ######################### User configurable parameters #########################
 # filename extensions
+
+GIT_VERSION := "$(shell git describe --abbrev=4 --dirty --always --tags)"
+
+
 CEXTS:=c
 ASMEXTS:=s S
 CXXEXTS:=cpp c++ cc
@@ -13,8 +17,8 @@ SRCDIR=$(ROOT)/src
 INCDIR=$(ROOT)/include
 
 WARNFLAGS+=
-EXTRA_CFLAGS=
-EXTRA_CXXFLAGS=
+EXTRA_CFLAGS=-DVERSION=\"$(GIT_VERSION)\"
+EXTRA_CXXFLAGS=-DVERSION=\"$(GIT_VERSION)\"
 
 # Set to 1 to enable hot/cold linking
 USE_PACKAGE:=1

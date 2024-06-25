@@ -28,7 +28,7 @@ pros::Motor left_back_motor  (BLAHAJ_LB, BLAHAJ_GEAR_SET);
 pros::Motor right_back_motor (BLAHAJ_RB, BLAHAJ_GEAR_SET);
 pros::Motor right_front_motor(BLAHAJ_RF, BLAHAJ_GEAR_SET);
 pros::Imu inertial_sensor(BLAHAJ_INERT);
-pros::ADIDigitalOut piston (BLAHAJ_NEUMATIC_PORT);
+pros::adi::DigitalOut piston (BLAHAJ_NEUMATIC_PORT);
 
 pros::MotorGroup left_side_motors  ({BLAHAJ_LF,BLAHAJ_LB},BLAHAJ_GEAR_SET);
 pros::MotorGroup right_side_motors ({BLAHAJ_RF,BLAHAJ_RB},BLAHAJ_GEAR_SET);
@@ -64,12 +64,12 @@ lemlib::ControllerSettings lateral_controller(10, // proportional gain (kP)
 // angular PID controller
 lemlib::ControllerSettings angular_controller(2, // proportional gain (kP)
                                               0, // integral gain (kI)
-                                              10, // derivative gain (kD)
-                                              3, // anti windup
-                                              1, // small error range, in degrees
-                                              100, // small error range timeout, in milliseconds
-                                              3, // large error range, in degrees
-                                              500, // large error range timeout, in milliseconds
+                                              20, // derivative gain (kD)
+                                              0, // anti windup
+                                              0, // small error range, in degrees
+                                              0, // small error range timeout, in milliseconds
+                                              0, // large error range, in degrees
+                                              0, // large error range timeout, in milliseconds
                                               0 // maximum acceleration (slew)
 );
 
@@ -90,8 +90,8 @@ void screen() {
         pros::lcd::print(3, "heading: %f", pose.theta ); // print the heading
         double average_temp = ((
             ( left_front_motor.get_temperature())+
-            ( left_back_motor.get_temperature())+
-            (right_back_motor.get_temperature())+
+              (left_back_motor.get_temperature())+
+             (right_back_motor.get_temperature())+
             (right_front_motor.get_temperature())
             )/4);
         pros::lcd::print(4, "Average Temperature: %lf*C", average_temp); // print the heading
@@ -116,7 +116,8 @@ void autonomous() {
 
     //ANGULAR CALIBRATION STEPS
     chassis.setPose(0, 0, 0);
-    chassis.
+    chassis.turnToHeading(90, 100000);
+    //chassis.
 }
 
 void opcontrol() {
@@ -124,8 +125,8 @@ void opcontrol() {
 	
 
 	while (true) {
-		int left =  -master.get_analog(ANALOG_LEFT_Y) / 127;
-		int right = -master.get_analog(ANALOG_RIGHT_Y) / 127;
+		int left =  -master.get_analog(ANALOG_LEFT_Y);
+		int right = -master.get_analog(ANALOG_RIGHT_Y);
 
         chassis.tank(left,right);
 
