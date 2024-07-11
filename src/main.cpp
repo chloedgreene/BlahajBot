@@ -61,14 +61,13 @@ lemlib::ControllerSettings lateral_controller(10, // proportional gain (kP)
                                               20 // maximum acceleration (slew)
 );
 
-// angular PID controller
 lemlib::ControllerSettings angular_controller(2, // proportional gain (kP)
                                               0, // integral gain (kI)
-                                              20, // derivative gain (kD)
+                                              14, // derivative gain (kD)
                                               0, // anti windup
-                                              0, // small error range, in degrees
+                                              0, // small error range, in inches
                                               0, // small error range timeout, in milliseconds
-                                              0, // large error range, in degrees
+                                              0, // large error range, in inches
                                               0, // large error range timeout, in milliseconds
                                               0 // maximum acceleration (slew)
 );
@@ -83,7 +82,7 @@ lemlib::Chassis chassis(drivetrain, // drivetrain settings
 void screen() {
     // loop forever
     while (true) {
-        pros::lcd::print(0, "Blåhaj Bot - 30405 - %s",VERSION);
+        pros::lcd::print(0, "Blahaj Bot - 30405 - %s",VERSION);
         lemlib::Pose pose = chassis.getPose(); // get the current position of the robot
         pros::lcd::print(1, "x: %f", pose.x); // print the x position
         pros::lcd::print(2, "y: %f", pose.y); // print the y position
@@ -129,6 +128,10 @@ void opcontrol() {
 		int right = -master.get_analog(ANALOG_RIGHT_Y);
 
         chassis.tank(left,right);
+
+        if (master.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN) == 1){
+            autonomous();
+        }
 
         pros::lcd::print(5, "Input: %d %d", left,right);
         pros::delay(2);
