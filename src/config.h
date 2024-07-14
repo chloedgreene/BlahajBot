@@ -38,7 +38,17 @@
 #define BLAHAJ_TRACK 16.141 //Messure from LB->RB or LF->RF, in inchs
 
 //Now the type of wheel being used
-#define BLAHAJ_WHEELTYPE lemlib::Omniwheel::NEW_325
+#define BLAHAJ_WHEELTYPE lemlib::Omniwheel::OLD_4_HALF
 
-//What profile on the SD card to run during autonomous
-#define BLAHAJ_PATH "path.txt"
+//ASSETS
+//Now we declare what assets we want, the file names must not include spaces, and any time there is a . put a _ as a replacement because c++ will accidently think its a keyword and AAAAHH this took hours to figure out
+ASSET(example_txt);
+
+//   ____    _    _     ___ ____  ____      _  _____ ___ ___  _   _ 
+//  / ___|  / \  | |   |_ _| __ )|  _ \    / \|_   _|_ _/ _ \| \ | |
+// | |     / _ \ | |    | ||  _ \| |_) |  / _ \ | |  | | | | |  \| |
+// | |___ / ___ \| |___ | || |_) |  _ <  / ___ \| |  | | |_| | |\  |
+//  \____/_/   \_\_____|___|____/|_| \_\/_/   \_\_| |___\___/|_| \_|
+
+
+//#define ANGULAR_CALI

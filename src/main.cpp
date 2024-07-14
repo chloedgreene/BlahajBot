@@ -62,8 +62,8 @@ lemlib::ControllerSettings lateral_controller(10, // proportional gain (kP)
 );
 
 lemlib::ControllerSettings angular_controller(2, // proportional gain (kP)
-                                              0, // integral gain (kI)
-                                              14, // derivative gain (kD)
+                                              10, // integral gain (kI)
+                                              16, // derivative gain (kD)
                                               0, // anti windup
                                               0, // small error range, in inches
                                               0, // small error range timeout, in milliseconds
@@ -111,12 +111,17 @@ void disabled() {}
 void competition_initialize() {}
 
 void autonomous() {
-    //chassis.follow(BLAHAJ_PATH,(60+30)*1000,3);
+    //Look, the compiler needs to be babysitted someitmes and a regular ifstatement will not work in this situration, so we need to go a macro if statement, got i hate cpp
 
-    //ANGULAR CALIBRATION STEPS
+    // #ifdef ANGULAR_CALI
+    //     chassis.setPose(0, 0, 0);
+    //     chassis.turnToHeading(90, 100000);
+    //     pros::delay(202002020202); // prevent it from running a path during calibration :3
+    // #endif
+
     chassis.setPose(0, 0, 0);
-    chassis.turnToHeading(90, 100000);
-    //chassis.
+    chassis.follow(example_txt, 15, 2000);
+
 }
 
 void opcontrol() {
@@ -133,6 +138,7 @@ void opcontrol() {
             autonomous();
         }
 
+        
         pros::lcd::print(5, "Input: %d %d", left,right);
         pros::delay(2);
 	}
