@@ -5,6 +5,7 @@
 # Executables
 *.bin
 *.elf
+.d/
 
 # PROS
 bin/
@@ -23,5 +24,3 @@ devenv.local.nix
 
 # pre-commit
 .pre-commit-config.yaml
-
-README.MD
