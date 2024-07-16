@@ -1,5 +1,5 @@
 //
-// Created by chloe on 4/23/24.
+// Initially Created by Chloe(Along with the help of all team members and teachers on 30405) on 4/23/24.
 //
 //⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣤⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 //⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿⣿⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -17,7 +17,30 @@
 //⠀⠀⠀⠀⠙⠲⣖⣤⣤⣆⣤⣀⣄⣄⣀⣀⣀⠀⠈⠉⠉⠛⠛⠻⠿⣿⣿⣿⣿⣿⣿⣿⣿⡿⡿⠿⠿⠿⠿⣿⣿⣿⠿⠿⠛⠛⠛⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 //⠀⠀⠀⠀⠀⠀⠀⠉⠛⠯⣍⣉⠉⠋⠝⠉⠋⠅⠐⠀⠀⠀⠀⠀⠀⠻⣿⣿⣿⣿⣿⣿⣿⣿⣶⣅⣰⠦⠗⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 //⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠙⠒⣓⣒⣒⡒⠢⠤⠤⠦⠤⠦⠶⣬⡟⢿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-//⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠛⠿⠿⢿⣿⣿⣿⣿⣿⣿⡿⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+//⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠛⠿⠿⢿⣿⣿⣿⣿⣿⣿⡿⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+//       ::::::::  :::::::     :::     ::::::: ::::::::::
+//     :+:    :+::+:   :+:   :+:     :+:   :+::+:    :+:
+//           +:++:+   +:+  +:+ +:+  +:+   +:++:+
+//       +#++: +#+   +:+ +#+  +:+  +#+   +:++#++:++#+
+//         +#++#+   +#++#+#+#+#+#++#+   +#+       +#+
+// #+#    #+##+#   #+#      #+#  #+#   #+##+#    #+#
+// ########  #######       ###   #######  ########
+//
+//       ::::::::: :::           :::    :::    :::    :::    :::::::::::
+//      :+:    :+::+:         :+: :+:  :+:    :+:  :+: :+:      :+:
+//     +:+    +:++:+        +:+   +:+ +:+    +:+ +:+   +:+     +:+
+//    +#++:++#+ +#+       +#++:++#++:+#++:++#+++#++:++#++:    +#+
+//   +#+    +#++#+       +#+     +#++#+    +#++#+     +#+    +#+
+//  #+#    #+##+#       #+#     #+##+#    #+##+#     #+##+# #+#
+// ######### #############     ######    ######     ### #####
+//
+//       :::::::::  :::::::::::::::::::
+//      :+:    :+::+:    :+:   :+:
+//     +:+    +:++:+    +:+   +:+
+//    +#++:++#+ +#+    +:+   +#+
+//   +#+    +#++#+    +#+   +#+
+//  #+#    #+##+#    #+#   #+#
+// #########  ########    ###
 #include "main.h"
 #include "lemlib/api.hpp"
 
@@ -61,9 +84,9 @@ lemlib::ControllerSettings lateral_controller(10, // proportional gain (kP)
                                               20 // maximum acceleration (slew)
 );
 
-lemlib::ControllerSettings angular_controller(2, // proportional gain (kP)
-                                              10, // integral gain (kI)
-                                              16, // derivative gain (kD)
+lemlib::ControllerSettings angular_controller(5, // proportional gain (kP)
+                                              0, // integral gain (kI)
+                                              14, // derivative gain (kD)
                                               0, // anti windup
                                               0, // small error range, in inches
                                               0, // small error range timeout, in milliseconds
@@ -82,7 +105,11 @@ lemlib::Chassis chassis(drivetrain, // drivetrain settings
 void screen() {
     // loop forever
     while (true) {
-        pros::lcd::print(0, "Blahaj Bot - 30405 - %s",VERSION);
+        #ifdef NOT_FOR_PRODUCTION
+            pros::lcd::print(0, "STA 30405 CALI - %s",VERSION);
+        #else
+            pros::lcd::print(0, "STA 30405 - %s",VERSION);
+        #endif
         lemlib::Pose pose = chassis.getPose(); // get the current position of the robot
         pros::lcd::print(1, "x: %f", pose.x); // print the x position
         pros::lcd::print(2, "y: %f", pose.y); // print the y position
@@ -93,7 +120,9 @@ void screen() {
              (right_back_motor.get_temperature())+
             (right_front_motor.get_temperature())
             )/4);
-        pros::lcd::print(4, "Average Temperature: %lf*C", average_temp); // print the heading
+        pros::lcd::print(4, "Average Temperature: %lf*C", average_temp); // print the temprature. so we can see if its over heating
+        
+        
         //pros::lcd::set_background_color();
         pros::delay(10);
     }
@@ -113,14 +142,18 @@ void competition_initialize() {}
 void autonomous() {
     //Look, the compiler needs to be babysitted someitmes and a regular ifstatement will not work in this situration, so we need to go a macro if statement, got i hate cpp
 
-    // #ifdef ANGULAR_CALI
-    //     chassis.setPose(0, 0, 0);
-    //     chassis.turnToHeading(90, 100000);
-    //     pros::delay(202002020202); // prevent it from running a path during calibration :3
-    // #endif
-
-    chassis.setPose(0, 0, 0);
-    chassis.follow(example_txt, 15, 2000);
+    #ifdef ANGULAR_CALI
+        chassis.setPose(0, 0, 0);
+        chassis.turnToHeading(90, 100000);
+        pros::delay(1000000000); // prevent it from running a path during calibration :3
+    #elif defined(LATERAL_CALI)
+        chassis.setPose(0, 0, 0);
+        chassis.moveToPoint(100,0,0)
+        pros::delay(1000000000);
+    #else
+        chassis.setPose(0, 0, 0);
+        chassis.follow(cali_txt, 15, 2000);
+    #endif
 
 }
 
