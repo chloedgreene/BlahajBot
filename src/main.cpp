@@ -57,8 +57,8 @@ pros::MotorGroup left_side_motors  ({BLAHAJ_LF,BLAHAJ_LB},BLAHAJ_GEAR_SET);
 pros::MotorGroup right_side_motors ({BLAHAJ_RF,BLAHAJ_RB},BLAHAJ_GEAR_SET);
 
 
-lemlib::Drivetrain drivetrain(&left_side_motors, // left motor group
-                              &right_side_motors, // right motor group
+lemlib::Drivetrain drivetrain(&right_side_motors, // left motor group
+                              &left_side_motors, // right motor group
                               BLAHAJ_TRACK, // 10 inch track width
                               BLAHAJ_WHEELTYPE, // using new 4" omnis
                               360, // drivetrain rpm is 360

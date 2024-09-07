@@ -182,7 +182,7 @@ endif
 
 -include $(wildcard $(FWDIR)/*.mk)
 
-.PHONY: all clean quick
+.PHONY: all clean quick test
 
 quick: $(DEFAULT_BIN)
 
@@ -192,6 +192,9 @@ clean:
 	@echo Cleaning project
 	-$Drm -rf $(BINDIR)
 	-$Drm -rf $(DEPDIR)
+
+test: quick
+	./upload.sh
 
 ifeq ($(IS_LIBRARY),1)
 ifeq ($(LIBNAME),libbest)
