@@ -64,10 +64,8 @@ ASSET(path_jerryio_txt)
 //#define ANGULAR_CALI
 //#define LATERAL_CALI
 
-
-
-
-
+// DO NOT TOUCH PLEASEEEE
+// PLEASEEEEEEE without talking to greene, i know how to calibrate it :3
 
 //Dont touch this pls, its internal stuff not mend for team members, only change for debugging
 #ifdef ANGULAR_CALI
