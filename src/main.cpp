@@ -167,9 +167,17 @@ void opcontrol() {
 
         chassis.tank(left,right);
 
+
+        #ifdef ANGULAR_CALI
         if (master.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN) == 1){
             autonomous();
         }
+        #endif
+        #ifdef LATERAL_CALI
+        if (master.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN) == 1){
+            autonomous();
+        }
+        #endif
 
         
         pros::lcd::print(5, "Input: %d %d", left,right);
