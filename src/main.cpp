@@ -62,7 +62,7 @@ lemlib::Drivetrain drivetrain(&right_side_motors, // left motor group
                               BLAHAJ_TRACK, // 10 inch track width
                               BLAHAJ_WHEELTYPE, // using new 4" omnis
                               360, // drivetrain rpm is 360
-                              2 // horizontal drift is 2 (for now)
+                              2 // set 2 for now, use 8 for traction wheels
 );
 
 lemlib::OdomSensors sensors(nullptr, // vertical tracking wheel 1, set to null
@@ -106,7 +106,7 @@ void screen() {
     // loop forever
     while (true) {
         #ifdef NOT_FOR_PRODUCTION
-            pros::lcd::print(0, "STA 30405 CALI - %s",VERSION);
+            pros::lcd::print(0, "STA 30405 CALIBRATION - %s",VERSION);
         #else
             pros::lcd::print(0, "STA 30405 - %s",VERSION);
         #endif
